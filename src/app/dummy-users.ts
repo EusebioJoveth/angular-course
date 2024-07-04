@@ -21,7 +21,7 @@ export const DUMMY_USERS = [
   },
   {
     id: 'u5',
-    name: 'Kambulu Purcel',
+    name: 'Margarida vasconselho',
     avatar: 'user-5.jpg',
   },
   {
