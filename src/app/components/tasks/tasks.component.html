@@ -1,8 +1,12 @@
+@if(isAddingTask){
+  <app-new-task (cancel)="onCancelAddTask()" (add)="onAddTask($event)"/>
+}
+
 <section id="tasks">
   <header>
     <h2>Tarefas {{userName}}</h2>
     <menu>
-      <button>Adicionar Tarefa</button>
+      <button (click)="onStartAddTask()">Adicionar Tarefa</button>
     </menu>
   </header>
 
