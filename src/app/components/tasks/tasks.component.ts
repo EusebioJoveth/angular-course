@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { type NewTask } from '../../models/new-task';
+import { TasksService } from '../../services/tasks.service';
 
 @Component({
   selector: 'app-tasks',
@@ -16,36 +17,13 @@ export class TasksComponent {
   @Input({required: true}) userName ?: string;
   isAddingTask = false;
 
-  tasks = [
-    {
-      id: 't1',
-      userId: 'u1',
-      title: "Programador Angular",
-      summary: "Aprenda todas as funcionalidades básicas e avançadas do Angular e como aplicá-las.",
-      dueDate: "2025-12-31"
-    },
-    {
-      id: 't2',
-      userId: 'u3',
-      title: "Criar testes Unitários",
-      summary: "Criar testes unitários e de integrações",
-      dueDate: "2025-12-31"
-    },
-    {
-      id: 't3',
-      userId: 'u3',
-      title: "Desenvolver a API",
-      summary: "Configurar a api e implementar a autenticação",
-      dueDate: "2025-12-31"
-    }
-  ];
-
-  get selectedUserTasks(){
-    return this.tasks.filter((task) => task.userId === this.userId);
+  constructor(private _taskService: TasksService) {
   }
 
-  onCompleteTask(id: string){
-    this.tasks = this.tasks.filter((task)=> task.id !==id)
+
+
+  get selectedUserTasks(){
+    return this._taskService.getUserTasks(this.userId)
   }
 
   onStartAddTask(){
@@ -57,13 +35,7 @@ export class TasksComponent {
   }
 
   onAddTask(taskData:NewTask){
-    this.tasks.unshift({
-      id: new Date().getTime().toString(),
-      userId: this.userId,
-      title: taskData.title,
-      summary: taskData.summary,
-      dueDate: taskData.date
-    });
+
     this.isAddingTask = false;
   }
 }
