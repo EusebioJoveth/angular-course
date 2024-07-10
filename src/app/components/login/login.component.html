@@ -1,0 +1,19 @@
+<h2></h2>
+<section id="login">
+  <form (ngSubmit)="onSubmit()">
+    <p>
+      <label for="email">Título</label>
+      <input type="email" id="email" name="email" [(ngModel)] = "email"/>
+    </p>
+
+    <p>
+      <label for="password">Título</label>
+      <input type="password" id="password" name="password" [(ngModel)] = "password"/>
+    </p>
+
+    <p class="actions">
+      <button type="button" (click)="googleLogin()">Entrar com google</button>
+      <button type="submit">Entrar com email e palavra pass</button>
+    </p>
+  </form>
+</section>
