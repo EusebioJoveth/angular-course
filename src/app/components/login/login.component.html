@@ -1,14 +1,18 @@
-<h2></h2>
 <section id="login">
+  <h2>Inicie a sua Sessão Aqui</h2>
   <form (ngSubmit)="onSubmit()">
     <p>
-      <label for="email">Título</label>
+      <label for="email">Email</label>
       <input type="email" id="email" name="email" [(ngModel)] = "email"/>
     </p>
 
     <p>
-      <label for="password">Título</label>
+      <label for="password">Senha</label>
       <input type="password" id="password" name="password" [(ngModel)] = "password"/>
+    </p>
+
+    <p class="">
+      <strong><label>Recuperar Senha</label></strong>
     </p>
 
     <p class="actions">
