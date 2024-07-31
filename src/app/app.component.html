@@ -1,8 +1,9 @@
-<app-header />
-  <app-login />
-
-
-<!--<main>
+<app-header [userAuth] ="userAuth" (dataEvent)="logout()"/>
+@if(!userAuth){
+  <app-login (dataEvent)="receiveData($event)"/>
+}
+@else {
+  <main>
   <ul id="users">
     @for(user of users; track user.id){
       <li>
@@ -17,4 +18,5 @@
     <p id="fallback">Selecione um utilizador para ver as suas tarefas!</p>
   }
 
-</main>-->
+</main>
+}

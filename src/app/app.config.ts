@@ -10,9 +10,12 @@ import { getMessaging, provideMessaging } from '@angular/fire/messaging';
 import { getPerformance, providePerformance } from '@angular/fire/performance';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { environment } from '../environments/environment.development';
+import { provideToastr } from 'ngx-toastr';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideAnimations(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
@@ -23,5 +26,8 @@ export const appConfig: ApplicationConfig = {
     provideFirestore(() => getFirestore()),
     provideMessaging(() => getMessaging()),
     providePerformance(() => getPerformance()),
-    provideStorage(() => getStorage())]
+    provideStorage(() => getStorage()),
+
+    provideToastr(),
+  ]
 };

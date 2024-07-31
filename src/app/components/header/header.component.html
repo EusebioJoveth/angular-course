@@ -2,4 +2,7 @@
   <img src="assets/task-management-logo.png"  alt=""/>
   <h1>TarefasFáceis</h1>
   <p>Gerenciamento de tarefas de nível empresarial sem atrito</p>
+  @if(userAuth){
+    <button type="button" class="fixed-button" (click)="logout()">Sair</button>
+  }
 </header>
